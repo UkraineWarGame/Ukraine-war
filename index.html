@@ -1,71 +1,134 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ukraine War</title>
-<style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: #101410;
-  color: #eee;
-  font-family: Arial, sans-serif;
+@media (max-width: 650px) {
+  header {
+    padding: 0 20px;
+  }
+
+  nav a {
+    margin-left: 10px;
+    font-size: 11px;
+  }
+
+  .hero {
+    padding: 75px 23px;
+    min-height: 390px;
+  }
+
+  .download-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title h2 {
+    font-size: 25px;
+  }
 }
-header {
-  padding: 55px 20px;
-  text-align: center;
-  background: linear-gradient(135deg,#263b2a,#111);
-  border-bottom: 2px solid #617b45;
-}
-h1 { font-size: 42px; margin: 0; }
-header p { color: #bbb; }
-main { max-width: 850px; margin: auto; padding: 25px 18px; }
-.card {
-  background: #1c241d;
-  border: 1px solid #354536;
-  border-radius: 12px;
-  padding: 22px;
-  margin-bottom: 20px;
-}
-h2 { color: #a6c77b; }
-.version { color: #a6c77b; font-weight: bold; }
-.download {
-  display: inline-block;
-  background: #668b45;
-  color: white;
-  padding: 14px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-}
-.download:hover { background: #7ba653; }
-footer { text-align: center; color: #777; padding: 25px; }
 </style>
 </head>
+
 <body>
+
 <header>
-  <h1>UKRAINE WAR</h1>
-  <p>Официальный сайт игры</p>
+  <div class="logo">UKRAINE <span>WAR</span></div>
+  <nav>
+    <a href="#downloads">Загрузка</a>
+    <a href="#updates">Обновления</a>
+    <a href="#about">Об игре</a>
+  </nav>
 </header>
+
+<section class="hero">
+  <div class="tag">OFFICIAL GAME WEBSITE</div>
+  <h1>UKRAINE <span>WAR</span></h1>
+  <p>
+    Добро пожаловать на официальный сайт Ukraine War.
+    Здесь можно скачать игру и следить за последними обновлениями.
+  </p>
+  <a class="hero-button" href="#downloads">СКАЧАТЬ ИГРУ →</a>
+</section>
+
 <main>
-  <section class="card">
-    <h2>Последняя версия</h2>
-    <p class="version">Версия 1.0</p>
-    <p>Последние обновления и улучшения игры.</p>
-    <a class="download" href="UkraineWar.apk">Скачать игру</a>
+
+  <section id="downloads">
+    <div class="section-title">
+      <small>DOWNLOAD CENTER</small>
+      <h2>Скачать игру</h2>
+      <p>Выбери подходящую версию для своего устройства.</p>
+    </div>
+
+    <div class="download-grid">
+
+      <div class="download-card">
+        <div class="card-label">MOBILE VERSION</div>
+        <div class="device">📱</div>
+        <h3>Android</h3>
+        <p>Мобильная версия Ukraine War для Android-смартфонов.</p>
+
+        <div class="file-type">
+          <span>Формат файла</span>
+          <strong>APK</strong>
+        </div>
+
+        <a class="download-button" href="UkraineWar.apk">
+          СКАЧАТЬ ДЛЯ ANDROID →
+        </a>
+      </div>
+
+      <div class="download-card pc-card">
+        <div class="card-label">DESKTOP VERSION</div>
+        <div class="device">💻</div>
+        <h3>Windows / PC</h3>
+        <p>Версия для компьютера. Запускается через браузер.</p>
+
+        <div class="file-type">
+          <span>Формат файла</span>
+          <strong>HTML</strong>
+        </div>
+
+        <a class="download-button" href="UkraineWar.html" download>
+          СКАЧАТЬ ДЛЯ ПК →
+        </a>
+      </div>
+
+    </div>
   </section>
-  <section class="card">
-    <h2>Последние обновления</h2>
-    <h3>Обновление 1.0</h3>
-    <p>Запуск официального сайта Ukraine War.</p>
+
+  <section id="updates" style="margin-top: 75px;">
+    <div class="section-title">
+      <small>NEWS & UPDATES</small>
+      <h2>Последние обновления</h2>
+    </div>
+
+    <div class="update-card">
+      <div class="update-version">VERSION 1.0</div>
+      <h3>Первый релиз Ukraine War</h3>
+      <p>
+        Запуск официального сайта игры.
+        Здесь будут публиковаться новые версии и информация об обновлениях.
+      </p>
+    </div>
   </section>
-  <section class="card">
-    <h2>Об игре</h2>
-    <p>Ukraine War — авторская игра в жанре военного шутера.</p>
+
+  <section id="about" style="margin-top: 75px;">
+    <div class="section-title">
+      <small>ABOUT THE GAME</small>
+      <h2>Об игре</h2>
+    </div>
+
+    <div class="about-card">
+      <p>
+        Ukraine War — авторская игра в военной тематике.
+        На этом сайте можно найти актуальные версии игры
+        и узнать о новых обновлениях.
+      </p>
+    </div>
   </section>
+
 </main>
-<footer>Ukraine War © 2026</footer>
+
+<footer>
+  <strong>UKRAINE WAR</strong> © 2026
+  <br>
+  Официальный сайт игры
+</footer>
+
 </body>
 </html>
