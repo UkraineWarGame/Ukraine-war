@@ -23,11 +23,12 @@ body {
 }
 
 header {
-    height: 76px;
-    padding: 0 7%;
+    min-height: 76px;
+    padding: 12px 7%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 15px;
     background: #111a14;
     border-bottom: 1px solid #293a2d;
 }
@@ -36,6 +37,7 @@ header {
     font-size: 21px;
     font-weight: 900;
     letter-spacing: 2px;
+    white-space: nowrap;
 }
 
 .logo span {
@@ -44,6 +46,7 @@ header {
 
 nav {
     display: flex;
+    align-items: center;
     gap: 25px;
 }
 
@@ -51,10 +54,27 @@ nav a {
     color: #aab6ac;
     text-decoration: none;
     font-size: 13px;
+    white-space: nowrap;
 }
 
 nav a:hover {
     color: #a8d77c;
+}
+
+.language-select {
+    background: #1b2a1e;
+    color: #a8d77c;
+    border: 1px solid #496343;
+    border-radius: 5px;
+    padding: 9px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+}
+
+.language-select option {
+    background: #111a14;
+    color: #e8eee9;
 }
 
 .hero {
@@ -244,7 +264,9 @@ main {
 
 .pc .download-button {
     background: #376e9e;
-}.update {
+}
+
+.update {
     margin-top: 25px;
     padding: 25px;
     background: #151e18;
@@ -300,7 +322,9 @@ footer strong {
 
 @media (max-width: 650px) {
     header {
-        padding: 0 5%;
+        padding: 12px 5%;
+        flex-direction: column;
+        gap: 13px;
     }
 
     .logo {
@@ -309,10 +333,17 @@ footer strong {
 
     nav {
         gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     nav a {
         font-size: 11px;
+    }
+
+    .language-select {
+        font-size: 11px;
+        padding: 7px;
     }
 
     .hero {
@@ -335,29 +366,51 @@ footer strong {
 
 <header>
     <div class="logo">UKRAINE <span>WAR</span></div>
+
     <nav>
-        <a href="#downloads">Загрузка</a>
-        <a href="#updates">Обновления</a>
-        <a href="#about">Об игре</a>
+        <a href="#downloads" data-i18n="navDownloads">Загрузка</a>
+
+        <select class="language-select" id="languageSelect"
+                aria-label="Выбор языка">
+            <option value="ru">Русский ▼</option>
+            <option value="uk">Українська ▼</option>
+            <option value="en">English ▼</option>
+        </select>
+
+        <a href="#updates" data-i18n="navUpdates">Обновления</a>
+        <a href="#about" data-i18n="navAbout">Об игре</a>
     </nav>
 </header>
 
 <section class="hero">
-    <div class="hero-label">ОФИЦИАЛЬНЫЙ САЙТ ИГРЫ</div>
+    <div class="hero-label" data-i18n="heroLabel">
+        ОФИЦИАЛЬНЫЙ САЙТ ИГРЫ
+    </div>
+
     <h1>UKRAINE <span>WAR</span></h1>
-    <p>
+
+    <p data-i18n="heroText">
         Добро пожаловать на официальный сайт Ukraine War.
         Скачивай актуальную версию игры и следи за новыми обновлениями.
     </p>
-    <a href="#downloads" class="main-button">СКАЧАТЬ ИГРУ →</a>
+
+    <a href="#downloads" class="main-button" data-i18n="heroButton">
+        СКАЧАТЬ ИГРУ →
+    </a>
 </section>
 
 <main>
 
     <section id="downloads">
-        <div class="section-label">ЗАГРУЗКИ</div>
-        <h2 class="section-title">Выбери свою платформу</h2>
-        <p class="section-description">
+        <div class="section-label" data-i18n="downloadsLabel">
+            ЗАГРУЗКИ
+        </div>
+
+        <h2 class="section-title" data-i18n="downloadsTitle">
+            Выбери свою платформу
+        </h2>
+
+        <p class="section-description" data-i18n="downloadsDescription">
             Доступны версии игры для телефона и компьютера.
         </p>
 
@@ -365,46 +418,59 @@ footer strong {
 
             <div class="download-card">
                 <div class="card-top">
-                    <span class="card-type">МОБИЛЬНАЯ ВЕРСИЯ</span>
+                    <span class="card-type" data-i18n="mobileVersion">
+                        МОБИЛЬНАЯ ВЕРСИЯ
+                    </span>
                     <span class="card-number">01</span>
                 </div>
 
                 <div class="device">📱</div>
+
                 <h3>Android</h3>
-                <p>
+
+                <p data-i18n="androidDescription">
                     Версия Ukraine War для смартфонов
                     и планшетов на Android.
                 </p>
 
                 <div class="file-info">
-                    <span>Формат файла</span>
+                    <span data-i18n="fileFormat">Формат файла</span>
                     <strong>APK</strong>
                 </div>
 
-                <a href="Ukrainian war_61.apk" class="download-button">
+                <a href="Ukrainian war_61.apk"
+                   class="download-button"
+                   data-i18n="androidButton">
                     СКАЧАТЬ ДЛЯ ANDROID →
                 </a>
             </div>
 
             <div class="download-card pc">
                 <div class="card-top">
-                    <span class="card-type">ВЕРСИЯ ДЛЯ ПК</span>
+                    <span class="card-type" data-i18n="pcVersion">
+                        ВЕРСИЯ ДЛЯ ПК
+                    </span>
                     <span class="card-number">02</span>
                 </div>
 
                 <div class="device">💻</div>
-                <h3>Компьютер</h3>
-                <p>
+
+                <h3 data-i18n="pcTitle">Компьютер</h3>
+
+                <p data-i18n="pcDescription">
                     Версия игры для компьютеров.
                     Запускается в браузере.
                 </p>
 
                 <div class="file-info">
-                    <span>Формат файла</span>
+                    <span data-i18n="fileFormat">Формат файла</span>
                     <strong>HTML</strong>
                 </div>
 
-                <a href="ukraine_war_operation_v9.html" download class="download-button">
+                <a href="ukraine_war_operation_v9.html"
+                   download
+                   class="download-button"
+                   data-i18n="pcButton">
                     СКАЧАТЬ ДЛЯ ПК →
                 </a>
             </div>
@@ -413,27 +479,45 @@ footer strong {
     </section>
 
     <section id="updates" style="margin-top: 75px;">
-        <div class="section-label">НОВОСТИ</div>
-        <h2 class="section-title">Последние обновления</h2>
+        <div class="section-label" data-i18n="updatesLabel">
+            НОВОСТИ
+        </div>
 
-        <div class="update<div class="update-version">ВЕРСИЯ 6.5</div>
-            <h3>Закрытая альфа Ukraine War</h3>
-            <p>
-                В этом обновлении
-               добавлена новая секретка (подказка, в одном из домов)
+        <h2 class="section-title" data-i18n="updatesTitle">
+            Последние обновления
+        </h2>
+
+        <div class="update">
+            <div class="update-version" data-i18n="updateVersion">
+                ВЕРСИЯ 6.5
+            </div>
+
+            <h3 data-i18n="updateTitle">
+                Закрытая альфа Ukraine War
+            </h3>
+
+            <p data-i18n="updateText">
+                В этом обновлении добавлена новая секретка
+                (подсказка: в одном из домов).
             </p>
         </div>
     </section>
 
     <section id="about" style="margin-top: 75px;">
-        <div class="section-label">ИНФОРМАЦИЯ</div>
-        <h2 class="section-title">Об игре</h2>
+        <div class="section-label" data-i18n="aboutLabel">
+            ИНФОРМАЦИЯ
+        </div>
+
+        <h2 class="section-title" data-i18n="aboutTitle">
+            Об игре
+        </h2>
 
         <div class="about">
-            <p>
+            <p data-i18n="aboutText">
                 Ukraine War — авторская игра в военной тематике.
                 На этом сайте можно скачать актуальную версию игры
-                и следить за её развитием.игра основана на реальной войне 2022 года, мы пытаемся делать обновления каждый день!
+                и следить за её развитием. Игра основана на реальной
+                войне 2022 года, мы пытаемся делать обновления каждый день!
             </p>
         </div>
     </section>
@@ -443,8 +527,153 @@ footer strong {
 <footer>
     <strong>UKRAINE WAR</strong> © 2026
     <br>
-    Официальный сайт игры
+    <span data-i18n="footerText">Официальный сайт игры</span>
 </footer>
+
+<script>
+const translations = {
+
+ru: {
+    title: "Ukraine War — Официальный сайт",
+
+    navDownloads: "Загрузка",
+    navUpdates: "Обновления",
+    navAbout: "Об игре",
+
+    heroLabel: "ОФИЦИАЛЬНЫЙ САЙТ ИГРЫ",
+    heroText: "Добро пожаловать на официальный сайт Ukraine War. Скачивай актуальную версию игры и следи за новыми обновлениями.",
+    heroButton: "СКАЧАТЬ ИГРУ →",
+
+    downloadsLabel: "ЗАГРУЗКИ",
+    downloadsTitle: "Выбери свою платформу",
+    downloadsDescription: "Доступны версии игры для телефона и компьютера.",
+
+    mobileVersion: "МОБИЛЬНАЯ ВЕРСИЯ",
+    androidDescription: "Версия Ukraine War для смартфонов и планшетов на Android.",
+    fileFormat: "Формат файла",
+    androidButton: "СКАЧАТЬ ДЛЯ ANDROID →",
+
+    pcVersion: "ВЕРСИЯ ДЛЯ ПК",
+    pcTitle: "Компьютер",
+    pcDescription: "Версия игры для компьютеров. Запускается в браузере.",
+    pcButton: "СКАЧАТЬ ДЛЯ ПК →",
+
+    updatesLabel: "НОВОСТИ",
+    updatesTitle: "Последние обновления",
+    updateVersion: "ВЕРСИЯ 6.5",
+    updateTitle: "Закрытая альфа Ukraine War",
+    updateText: "В этом обновлении добавлена новая секретка (подсказка: в одном из домов).",
+
+    aboutLabel: "ИНФОРМАЦИЯ",
+    aboutTitle: "Об игре",
+    aboutText: "Ukraine War — авторская игра в военной тематике. На этом сайте можно скачать актуальную версию игры и следить за её развитием. Игра основана на реальной войне 2022 года, мы пытаемся делать обновления каждый день!",
+
+    footerText: "Официальный сайт игры"
+},
+
+uk: {
+    title: "Ukraine War — Офіційний сайт",
+
+    navDownloads: "Завантаження",
+    navUpdates: "Оновлення",
+    navAbout: "Про гру",
+
+    heroLabel: "ОФІЦІЙНИЙ САЙТ ГРИ",
+    heroText: "Ласкаво просимо на офіційний сайт Ukraine War. Завантажуй актуальну версію гри та стеж за новими оновленнями.",
+    heroButton: "ЗАВАНТАЖИТИ ГРУ →",
+
+    downloadsLabel: "ЗАВАНТАЖЕННЯ",
+    downloadsTitle: "Обери свою платформу",
+    downloadsDescription: "Доступні версії гри для телефону та комп'ютера.",
+
+    mobileVersion: "МОБІЛЬНА ВЕРСІЯ",
+    androidDescription: "Версія Ukraine War для смартфонів і планшетів на Android.",
+    fileFormat: "Формат файлу",
+    androidButton: "ЗАВАНТАЖИТИ ДЛЯ ANDROID →",
+
+    pcVersion: "ВЕРСІЯ ДЛЯ ПК",
+    pcTitle: "Комп'ютер",
+    pcDescription: "Версія гри для комп'ютерів. Запускається у браузері.",
+    pcButton: "ЗАВАНТАЖИТИ ДЛЯ ПК →",
+
+    updatesLabel: "НОВИНИ",
+    updatesTitle: "Останні оновлення",
+    updateVersion: "ВЕРСІЯ 6.5",
+    updateTitle: "Закрита альфа Ukraine War",
+    updateText: "У цьому оновленні додано нову секретку (підказка: в одному з будинків).",
+
+    aboutLabel: "ІНФОРМАЦІЯ",
+    aboutTitle: "Про гру",
+    aboutText: "Ukraine War — авторська гра у військовій тематиці. На цьому сайті можна завантажити актуальну версію гри та стежити за її розвитком. Гра заснована на реальній війні 2022 року, ми намагаємося робити оновлення щодня!",
+
+    footerText: "Офіційний сайт гри"
+},
+
+en: {
+    title: "Ukraine War — Official Website",
+
+    navDownloads: "Downloads",
+    navUpdates: "Updates",
+    navAbout: "About",
+
+    heroLabel: "OFFICIAL GAME WEBSITE",
+    heroText: "Welcome to the official Ukraine War website. Download the latest version of the game and follow new updates.",
+    heroButton: "DOWNLOAD GAME →",
+
+    downloadsLabel: "DOWNLOADS",
+    downloadsTitle: "Choose your platform",
+    downloadsDescription: "Game versions are available for phones and computers.",
+
+    mobileVersion: "MOBILE VERSION",
+    androidDescription: "Ukraine War version for Android smartphones and tablets.",
+    fileFormat: "File format",
+    androidButton: "DOWNLOAD FOR ANDROID →",
+
+    pcVersion: "PC VERSION",
+    pcTitle: "Computer",
+    pcDescription: "Game version for computers. Runs in a browser.",
+    pcButton: "DOWNLOAD FOR PC →",
+
+    updatesLabel: "NEWS",
+    updatesTitle: "Latest updates",
+    updateVersion: "VERSION 6.5",
+    updateTitle: "Ukraine War Closed Alpha",
+    updateText: "This update adds a new secret location (hint: inside one of the houses).",
+
+    aboutLabel: "INFORMATION",
+    aboutTitle: "About the game",
+    aboutText: "Ukraine War is an independent military-themed game. You can download the latest version of the game on this website and follow its development. The game is based on the real war of 2022. We try to release updates every day!",
+
+    footerText: "Official game website"
+}
+
+};
+
+const languageSelect = document.getElementById("languageSelect");
+
+function setLanguage(language) {
+    const selected = translations[language] || translations.ru;
+
+    document.documentElement.lang = language;
+    document.title = selected.title;
+
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.getAttribute("data-i18n");
+
+        if (selected[key] !== undefined) {
+            element.textContent = selected[key];
+        }
+    });
+
+    languageSelect.value = language;
+}
+
+languageSelect.addEventListener("change", function() {
+    setLanguage(this.value);
+});
+
+setLanguage("ru");
+</script>
 
 </body>
 </html>
